@@ -20,15 +20,24 @@ Dash Electrum - Lightweight Dashpay client
 Getting started
 ===============
 
+Compile Neoscrypt hasher
+-----------------------
 
-Use PPA setup
--------------
+ZCore uses Neoscrypt for older transactions, so 
+you will need to compile it, to make it work:
 
-On Ubuntu/Linux Mint you can try to install Dash Electrum with next commands::
+    cd neoscrypt
+    sudo python3 setup.py install
 
-    sudo add-apt-repository ppa:akhavr/dash-electrum
-    sudo apt-get update
-    sudo apt-get install dash-electrum
+Compile lyra2z hasher
+-----------------------
+
+ZCore uses lyra2z for recent transactions, so 
+you will need to compile it, to make it work:
+
+    cd lyra2z
+    sudo python3 setup.py install
+
 
 
 Use source distribution
@@ -43,10 +52,6 @@ If you downloaded the official package (tar.gz), you can run
 Dash Electrum from its root directory, without installing it on your
 system; all the python dependencies are included in the 'packages'
 directory (except x11-hash).
-
-To install x11-hash dependency in the 'packages' dir run once::
-
-    pip3 install -t packages x11-hash
 
 To run Dash Electrum from its root directory, just do::
 
@@ -111,7 +116,6 @@ Create translations (optional)::
 
     sudo apt-get install python-requests gettext
     ./contrib/make_locale
-
 
 
 
