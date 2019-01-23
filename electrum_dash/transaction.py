@@ -34,7 +34,7 @@ from .util import print_error, profiler
 from . import ecc
 from . import bitcoin
 from .bitcoin import *
-from .dash_tx import read_extra_payload, serialize_extra_payload, to_varbytes
+from .zcore_tx import read_extra_payload, serialize_extra_payload, to_varbytes
 import struct
 import traceback
 import sys

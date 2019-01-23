@@ -40,19 +40,19 @@ def read_json(filename, default):
 class BitcoinMainnet:
 
     TESTNET = False
-    WIF_PREFIX = 204
-    ADDRTYPE_P2PKH = 76
-    ADDRTYPE_P2SH = 16
-    GENESIS = "00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6"
+    WIF_PREFIX = 80
+    ADDRTYPE_P2PKH = 80
+    ADDRTYPE_P2SH = 0
+    GENESIS = "00000194d1a0b89f2d487032ca7f3794f9ffe9e073f4b61442e1170e37c7e705"
     DEFAULT_PORTS = {'t': '50001', 's': '50002'}
     DEFAULT_SERVERS = read_json('servers.json', {})
     CHECKPOINTS = read_json('checkpoints.json', [])
 
     XPRV_HEADERS = {
-        'standard':    0x0488ade4,  # xprv
+        'standard':    0x0988ade4,  # xprv
     }
     XPUB_HEADERS = {
-        'standard':    0x0488b21e,  # xpub
+        'standard':    0x0888b21e,  # xpub
     }
     DRKV_HEADER = 0x02fe52f8  # drkv
     DRKP_HEADER = 0x02fe52cc  # drkp
@@ -62,19 +62,19 @@ class BitcoinMainnet:
 class BitcoinTestnet:
 
     TESTNET = True
-    WIF_PREFIX = 239
-    ADDRTYPE_P2PKH = 140
-    ADDRTYPE_P2SH = 19
-    GENESIS = "00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c"
+    WIF_PREFIX = 240
+    ADDRTYPE_P2PKH = 112
+    ADDRTYPE_P2SH = 20
+    GENESIS = "000001d77b6993ef8cf9149b6a950cc73802c37b967bbdeefef7ef4825e2abd9"
     DEFAULT_PORTS = {'t': '51001', 's': '51002'}
     DEFAULT_SERVERS = read_json('servers_testnet.json', {})
     CHECKPOINTS = read_json('checkpoints_testnet.json', [])
 
     XPRV_HEADERS = {
-        'standard':    0x04358394,  # tprv
+        'standard':    0x08358394,  # tprv
     }
     XPUB_HEADERS = {
-        'standard':    0x043587cf,  # tpub
+        'standard':    0x033587cf,  # tpub
     }
     DRKV_HEADER = 0x3a8061a0  # DRKV
     DRKP_HEADER = 0x3a805837  # DRKP
@@ -83,7 +83,7 @@ class BitcoinTestnet:
 
 class BitcoinRegtest(BitcoinTestnet):
 
-    GENESIS = "000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e"
+    GENESIS = "0000015d3313fe1ab2f2701f8a4b8bd747000894cedacdd3faa10bee0abdc11e"
     DEFAULT_SERVERS = read_json('servers_regtest.json', {})
     CHECKPOINTS = []
 

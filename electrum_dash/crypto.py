@@ -32,7 +32,8 @@ import pyaes
 
 from .util import assert_bytes, InvalidPassword, to_bytes, to_string
 from .util import print_stderr
-from .x11hash import getPoWHash
+from .lyra2zhash import getL2zPoWHash
+from .neoscrypthash import getNeoPoWHash
 
 
 try:
@@ -137,9 +138,14 @@ def Hash(x: bytes) -> bytes:
 
 
 def PoWHash(x):
-    return getPoWHash(to_bytes(x))
-
-
+    try:
+        h = getL2zPoWHash(to_bytes(x))
+    except:
+        h = getNeoPoWHash(to_bytes(x))
+    if not h:
+        raise "Invalid hash to decode"
+    return h
+    
 def hash_160(x: bytes) -> bytes:
     try:
         md = hashlib.new('ripemd160')

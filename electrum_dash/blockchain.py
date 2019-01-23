@@ -71,6 +71,7 @@ def hash_header(header):
         return '0' * 64
     if header.get('prev_block_hash') is None:
         header['prev_block_hash'] = '00'*32
+
     return hash_encode(PoWHash(bfh(serialize_header(header))))
 
 
